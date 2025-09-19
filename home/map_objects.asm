@@ -77,38 +77,7 @@ SetSpriteImageIndexAfterSettingFacingDirection::
 ; [wCoordIndex] = if there is match, the matching array index
 ; sets carry if the coordinates are in the array, clears carry if not
 ArePlayerCoordsInArray::
-	ld a, [wYCoord]
-	ld b, a
-	ld a, [wXCoord]
-	ld c, a
-	; fallthrough
-
-CheckCoords::
-	xor a
-	ld [wCoordIndex], a
-.loop
-	ld a, [hli]
-	cp $ff ; reached terminator?
-	jr z, .notInArray
-	push hl
-	ld hl, wCoordIndex
-	inc [hl]
-	pop hl
-.compareYCoord
-	cp b
-	jr z, .compareXCoord
-	inc hl
-	jr .loop
-.compareXCoord
-	ld a, [hli]
-	cp c
-	jr nz, .loop
-.inArray
-	scf
-	ret
-.notInArray
-	and a
-	ret
+        farjp ArePlayerCoordsInArray_
 
 ; tests if a boulder's coordinates are in a specified array
 ; INPUT:
@@ -117,22 +86,11 @@ CheckCoords::
 ; OUTPUT:
 ; [wCoordIndex] = if there is match, the matching array index
 ; sets carry if the coordinates are in the array, clears carry if not
+CheckCoords::
+        farjp CheckCoords_
+
 CheckBoulderCoords::
-	push hl
-	ld hl, wSpritePlayerStateData2MapY
-	ldh a, [hSpriteIndex]
-	swap a
-	ld d, $0
-	ld e, a
-	add hl, de
-	ld a, [hli]
-	sub $4 ; because sprite coordinates are offset by 4
-	ld b, a
-	ld a, [hl]
-	sub $4 ; because sprite coordinates are offset by 4
-	ld c, a
-	pop hl
-	jp CheckCoords
+        farjp CheckBoulderCoords_
 
 GetPointerWithinSpriteStateData1::
        farjp GetPointerWithinSpriteStateData1_
