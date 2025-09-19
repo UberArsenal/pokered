@@ -1548,6 +1548,8 @@ wDamage:: dw
 	ds 2
 
 wRepelRemainingSteps:: db
+wLastRepelStepCount:: db
+wLastRepelItem:: db
 
 ; list of moves for FormatMovesString
 wMoves:: ds NUM_MOVES
