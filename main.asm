@@ -115,6 +115,7 @@ INCLUDE "engine/play_time.asm"
 
 SECTION "Doors and Ledges", ROMX
 
+INCLUDE "engine/overworld/map_object_helpers.asm"
 INCLUDE "engine/overworld/auto_movement.asm"
 INCLUDE "engine/overworld/doors.asm"
 INCLUDE "engine/overworld/ledges.asm"
