@@ -795,33 +795,33 @@ OaksLabRivalText:
 	text_end
 
 OaksLabCharmanderPokeBallText:
-	text_asm
-	ld a, STARTER2
-	ld [wRivalStarterTemp], a
-	ld a, OAKSLAB_SQUIRTLE_POKE_BALL
-	ld [wRivalStarterBallSpriteIndex], a
-	ld a, STARTER1
-	ld b, OAKSLAB_CHARMANDER_POKE_BALL
-	jr OaksLabSelectedPokeBallScript
+        text_asm
+        ld a, STARTER3
+        ld [wRivalStarterTemp], a
+        ld a, OAKSLAB_BULBASAUR_POKE_BALL
+        ld [wRivalStarterBallSpriteIndex], a
+        ld a, STARTER1
+        ld b, OAKSLAB_CHARMANDER_POKE_BALL
+        jr OaksLabSelectedPokeBallScript
 
 OaksLabSquirtlePokeBallText:
-	text_asm
-	ld a, STARTER3
-	ld [wRivalStarterTemp], a
-	ld a, OAKSLAB_BULBASAUR_POKE_BALL
-	ld [wRivalStarterBallSpriteIndex], a
-	ld a, STARTER2
-	ld b, OAKSLAB_SQUIRTLE_POKE_BALL
-	jr OaksLabSelectedPokeBallScript
+        text_asm
+        ld a, STARTER1
+        ld [wRivalStarterTemp], a
+        ld a, OAKSLAB_CHARMANDER_POKE_BALL
+        ld [wRivalStarterBallSpriteIndex], a
+        ld a, STARTER2
+        ld b, OAKSLAB_SQUIRTLE_POKE_BALL
+        jr OaksLabSelectedPokeBallScript
 
 OaksLabBulbasaurPokeBallText:
-	text_asm
-	ld a, STARTER1
-	ld [wRivalStarterTemp], a
-	ld a, OAKSLAB_CHARMANDER_POKE_BALL
-	ld [wRivalStarterBallSpriteIndex], a
-	ld a, STARTER3
-	ld b, OAKSLAB_BULBASAUR_POKE_BALL
+        text_asm
+        ld a, STARTER2
+        ld [wRivalStarterTemp], a
+        ld a, OAKSLAB_SQUIRTLE_POKE_BALL
+        ld [wRivalStarterBallSpriteIndex], a
+        ld a, STARTER3
+        ld b, OAKSLAB_BULBASAUR_POKE_BALL
 
 OaksLabSelectedPokeBallScript:
 	ld [wCurPartySpecies], a
