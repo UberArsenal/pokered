@@ -24,6 +24,10 @@ BluesHouse_TextPointers:
 	dw_const BluesHouseDaisyWalkingText, TEXT_BLUESHOUSE_DAISY_WALKING
 	dw_const BluesHouseTownMapText,      TEXT_BLUESHOUSE_TOWN_MAP
 
+BluesHouseTrainerHeaders:
+	def_trainers 3
+	db -1 ; end
+
 BluesHouseDaisySittingText:
 	text_asm
 	CheckEvent EVENT_GOT_TOWN_MAP
