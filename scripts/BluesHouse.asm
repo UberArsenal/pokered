@@ -86,10 +86,6 @@ BluesHouse_TextPointers:
         dw_const BluesHouseTownMapText,      TEXT_BLUESHOUSE_TOWN_MAP
         dw_const BluesHouseOakText,          TEXT_BLUESHOUSE_OAK
 
-BluesHouseTrainerHeaders:
-	def_trainers 3
-	db -1 ; end
-
 BluesHouseDaisySittingText:
 	text_asm
 	CheckEvent EVENT_GOT_TOWN_MAP
@@ -165,7 +161,7 @@ BluesHouseOakText:
         jp TextScriptEnd
 
 BluesHouseTrainerHeaders:
-        def_trainers
+        def_trainers 3
 ProfOakTrainerHeader:
         trainer EVENT_BEAT_PROF_OAK, 0, BluesHouseOakBattleText, BluesHouseOakDefeatedText, BluesHouseOakAfterBattleText
         db -1 ; end
