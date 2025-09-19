@@ -2355,7 +2355,7 @@ BoxFullCannotThrowBallText:
 	text_far _BoxFullCannotThrowBallText
 	text_end
 
-ItemUseText00:
+ItemUseText00::
 	text_far _ItemUseText001
 	text_low
 	text_far _ItemUseText002
