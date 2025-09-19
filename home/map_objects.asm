@@ -135,20 +135,10 @@ CheckBoulderCoords::
 	jp CheckCoords
 
 GetPointerWithinSpriteStateData1::
-	ld h, HIGH(wSpriteStateData1)
-	jr _GetPointerWithinSpriteStateData
+       farjp GetPointerWithinSpriteStateData1_
 
 GetPointerWithinSpriteStateData2::
-	ld h, HIGH(wSpriteStateData2)
-
-_GetPointerWithinSpriteStateData:
-	ldh a, [hSpriteDataOffset]
-	ld b, a
-	ldh a, [hSpriteIndex]
-	swap a
-	add b
-	ld l, a
-	ret
+       farjp GetPointerWithinSpriteStateData2_
 
 ; decodes a $ff-terminated RLEncoded list
 ; each entry is a pair of bytes <byte value> <repetitions>

@@ -86,3 +86,19 @@ GetSpriteMovementByte2Pointer_::
         add hl, de
         pop de
         ret
+
+GetPointerWithinSpriteStateData1_::
+        ld h, HIGH(wSpriteStateData1)
+        jr GetPointerWithinSpriteStateDataCommon_
+
+GetPointerWithinSpriteStateData2_::
+        ld h, HIGH(wSpriteStateData2)
+
+GetPointerWithinSpriteStateDataCommon_:
+        ldh a, [hSpriteDataOffset]
+        ld b, a
+        ldh a, [hSpriteIndex]
+        swap a
+        add b
+        ld l, a
+        ret
