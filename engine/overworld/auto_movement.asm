@@ -132,7 +132,7 @@ RLEList_ProfOakWalkToLab:
 	db NPC_MOVEMENT_LEFT, 1
 	db NPC_MOVEMENT_DOWN, 5
 	db NPC_MOVEMENT_RIGHT, 3
-	db NPC_MOVEMENT_UP, 1
+        db NPC_MOVEMENT_UP, 2
 	db NPC_CHANGE_FACING, 1
 	db -1 ; end
 
