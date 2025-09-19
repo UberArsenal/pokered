@@ -41,28 +41,3 @@ _BluesHouseTownMapText::
         line "This is useful!"
         done
 
-_BluesHouseOakBattleText::
-        text "Ah, <PLAYER>!"
-        line "Splendid work in"
-        cont "ELITE FOUR bouts."
-        para "You even caught"
-        line "that MEWTWO as"
-        cont "well!"
-        para "I was once a"
-        line "#MON TRAINER."
-        para "Show me your true"
-        line "power in one last"
-        cont "all-out battle!"
-        done
-
-_BluesHouseOakDefeatedText::
-        text "Thank you for this"
-        line "amazing battle!"
-        done
-
-_BluesHouseOakAfterBattleText::
-        text "Haven't been that"
-        line "excited in years!"
-        para "You're quite the"
-        line "trainer, <PLAYER>!"
-        done

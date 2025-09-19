@@ -44,8 +44,34 @@ _Route1Youngster2Text::
 	done
 
 _Route1SignText::
-	text "ROUTE 1"
-	line "PALLET TOWN -"
-	cont "VIRIDIAN CITY"
-	done
+        text "ROUTE 1"
+        line "PALLET TOWN -"
+        cont "VIRIDIAN CITY"
+        done
+
+_Route1OakBattleText::
+        text "Ah, <PLAYER>!"
+        line "Splendid work in"
+        cont "ELITE FOUR bouts."
+        para "You even caught"
+        line "that MEWTWO as"
+        cont "well!"
+        para "I was once a"
+        line "#MON TRAINER."
+        para "Show me your true"
+        line "power in one last"
+        cont "all-out battle!"
+        done
+
+_Route1OakDefeatedText::
+        text "Thank you for this"
+        line "amazing battle!"
+        done
+
+_Route1OakAfterBattleText::
+        text "Haven't been that"
+        line "excited in years!"
+        para "You're quite the"
+        line "trainer, <PLAYER>!"
+        done
 
