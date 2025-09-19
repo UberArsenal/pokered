@@ -53,6 +53,7 @@ GetMachineName::
 	push hl
 	push de
 	push bc
+	ld de, wNameBuffer
 	ld a, [wNamedObjectIndex]
 	push af
 	cp TM01 ; is this a TM? [not HM]
@@ -61,15 +62,16 @@ GetMachineName::
 ; TM printing code
 	add NUM_HMS
 	ld [wNamedObjectIndex], a
-	ld hl, HiddenPrefix ; points to "HM"
-	ld bc, 2
+	ld a, "H"
 	jr .WriteMachinePrefix
 .WriteTM
-	ld hl, TechnicalPrefix ; points to "TM"
-	ld bc, 2
+	ld a, "T"
 .WriteMachinePrefix
-	ld de, wNameBuffer
-	call CopyData
+	ld [de], a
+	inc de
+	ld a, "M"
+	ld [de], a
+	inc de
 
 ; now get the machine number and convert it to text
 	ld a, [wNamedObjectIndex]
@@ -100,10 +102,6 @@ GetMachineName::
 	pop hl
 	ret
 
-TechnicalPrefix::
-	db "TM"
-HiddenPrefix::
-	db "HM"
 
 ; sets carry if item is HM, clears carry if item is not HM
 ; Input: a = item ID
