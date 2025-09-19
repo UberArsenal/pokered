@@ -4,11 +4,11 @@ Route3WildMons:
 	db  5, SPEAROW
 	db  7, PIDGEY
 	db  6, SPEAROW
-	db  7, SPEAROW
+	db  7, CLEFAIRY
 	db  8, PIDGEY
 	db  8, SPEAROW
 	db  3, JIGGLYPUFF
-	db  5, JIGGLYPUFF
+	db  5, GEODUDE
 	db  7, JIGGLYPUFF
 	end_grass_wildmons
 

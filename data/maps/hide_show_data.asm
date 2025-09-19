@@ -255,7 +255,7 @@ MapHSPointers:
 	dw -1 ; end
 
 NoHS:
-	db $FF, $FF, $FF
+	db -1, -1, -1 ; end
 
 MissableObjects:
 ; entries correspond to HS_* constants (see constants/hide_show_constants)
@@ -292,6 +292,7 @@ SaffronCityHS:
 	db SAFFRON_CITY, SAFFRONCITY_ROCKER,         HIDE
 	db SAFFRON_CITY, SAFFRONCITY_ROCKET8,        SHOW
 	db SAFFRON_CITY, SAFFRONCITY_ROCKET9,        HIDE
+
 Route2HS:
 	db ROUTE_2, ROUTE2_MOON_STONE, SHOW
 	db ROUTE_2, ROUTE2_HP_UP,      SHOW
@@ -564,5 +565,5 @@ SeafoamIslandsB4FHS:
 	db SEAFOAM_ISLANDS_B4F, SEAFOAMISLANDSB4F_BOULDER1, HIDE
 	db SEAFOAM_ISLANDS_B4F, SEAFOAMISLANDSB4F_BOULDER2, HIDE
 	db SEAFOAM_ISLANDS_B4F, SEAFOAMISLANDSB4F_ARTICUNO, SHOW
-	db $FF, $01, SHOW ; end
-	assert_table_length NUM_HS_OBJECTS + 1
+	assert_table_length NUM_HS_OBJECTS
+	db -1, 1, SHOW ; end

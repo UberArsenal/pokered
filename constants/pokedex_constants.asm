@@ -155,5 +155,8 @@
 	const DEX_DRAGONITE  ; 149
 	const DEX_MEWTWO     ; 150
 	const DEX_MEW        ; 151
+	const DEX_MCHARIZARD ; 152
+	const DEX_CHARIZARDY ; 153
+	const DEX_MEWTWO_X   ; 154
 
 DEF NUM_POKEMON EQU const_value - 1

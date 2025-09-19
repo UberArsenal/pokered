@@ -9,6 +9,7 @@
 	const_export FUCHSIACITY_SLOWPOKE
 	const_export FUCHSIACITY_LAPRAS
 	const_export FUCHSIACITY_FOSSIL
+	const_export FUCHSIACITY_COOLTRAINER_M
 
 FuchsiaCity_Object:
 	db $f ; border block

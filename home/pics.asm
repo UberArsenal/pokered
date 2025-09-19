@@ -30,18 +30,21 @@ UncompressMonSprite::
 	ld a, BANK("Pics 1")
 	jr c, .GotBank
 	ld a, b
-	cp MOLTRES + 1
+	cp POLIWAG + 1
 	ld a, BANK("Pics 2")
 	jr c, .GotBank
 	ld a, b
-	cp BEEDRILL + 2
+	cp KAKUNA + 1
 	ld a, BANK("Pics 3")
 	jr c, .GotBank
 	ld a, b
-	cp STARMIE + 1
+	cp PIDGEOT + 1
 	ld a, BANK("Pics 4")
 	jr c, .GotBank
+	cp MEWTWO_X + 1
 	ld a, BANK("Pics 5")
+	jr c, .GotBank
+	ld a, b
 .GotBank
 	jp UncompressSpriteData
 
@@ -93,7 +96,7 @@ LoadUncompressedSpriteData::
 	add a     ; 8*(7*((8-w)/2) + 7-h) ; combined overall offset (in bytes)
 	ldh [hSpriteOffset], a
 	xor a
-	ld [MBC1SRamBank], a
+	ld [rRAMB], a
 	ld hl, sSpriteBuffer0
 	call ZeroSpriteBuffer   ; zero buffer 0
 	ld de, sSpriteBuffer1
@@ -151,7 +154,7 @@ ZeroSpriteBuffer::
 ; de: output address
 InterlaceMergeSpriteBuffers::
 	xor a
-	ld [MBC1SRamBank], a
+	ld [rRAMB], a
 	push de
 	ld hl, sSpriteBuffer2 + (SPRITEBUFFERSIZE - 1) ; destination: end of buffer 2
 	ld de, sSpriteBuffer1 + (SPRITEBUFFERSIZE - 1) ; source 2: end of buffer 1

@@ -1507,3 +1507,32 @@ _VictreebelDexEntry::
 	next "has ever returned"
 	next "from there"
 	dex
+
+_MCharizardDexEntry::
+	text "It breathes fire"
+	next "of such great heat"
+	next "that it melts all"
+	
+	page "things in its path"
+	next "Flies in the sky"
+	next "for strong enemies"
+	dex
+_CharizardYDexEntry::
+	text "It breathes fire"
+	next "of such great heat"
+	next "that it melts all"
+	
+	page "things in its path"
+	next "Flies in the sky"
+	next "for strong enemies"
+	dex
+
+_MewtwoXDexEntry::
+	text "PSYCHIC power has"
+	next "augmented it's "
+	next "muscles. It has"
+	
+	page "a grip strength of"
+	next "of one ton and runs"
+	next "100m in 2 secs!"
+	dex

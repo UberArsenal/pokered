@@ -6,11 +6,11 @@ ENDC
 IF DEF(_BLUE)
 	db 26, SANDSHREW
 ENDC
-	db 33, DITTO
+	db 33, EEVEE
 	db 26, SPEAROW
 	db 38, FEAROW
 	db 38, DITTO
-	db 38, FEAROW
+	db 38, ARBOK
 IF DEF(_RED)
 	db 41, ARBOK
 ENDC
@@ -19,7 +19,7 @@ IF DEF(_BLUE)
 ENDC
 	db 43, DITTO
 	db 41, FEAROW
-	db 43, FEAROW
+	db 43, SANDSLASH
 	end_grass_wildmons
 
 	def_water_wildmons 0 ; encounter rate

@@ -1,7 +1,7 @@
 Route17WildMons:
 	def_grass_wildmons 25 ; encounter rate
-	db 20, SPEAROW
-	db 22, SPEAROW
+	db 20, FEAROW
+	db 22, FEAROW
 	db 25, RATICATE
 	db 24, DODUO
 	db 27, RATICATE

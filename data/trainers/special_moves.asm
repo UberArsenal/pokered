@@ -19,7 +19,7 @@ LoneMoves:
 TeamMoves:
 	; trainer, move
 	db LORELEI, BLIZZARD
-	db BRUNO,   FISSURE
+	db BRUNO,   MEGA_PUNCH
 	db AGATHA,  TOXIC
-	db LANCE,   BARRIER
+	db LANCE,   THRASH
 	db -1 ; end

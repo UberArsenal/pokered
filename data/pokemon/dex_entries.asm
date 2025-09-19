@@ -30,8 +30,8 @@ PokedexEntryPointers:
 	dw BlastoiseDexEntry
 	dw PinsirDexEntry
 	dw TangelaDexEntry
-	dw MissingNoDexEntry
-	dw MissingNoDexEntry
+	dw MCharizardDexEntry
+	dw CharizardYDexEntry
 	dw GrowlitheDexEntry
 	dw OnixDexEntry
 	dw FearowDexEntry
@@ -171,7 +171,7 @@ PokedexEntryPointers:
 	dw GeodudeDexEntry
 	dw PorygonDexEntry
 	dw AerodactylDexEntry
-	dw MissingNoDexEntry
+	dw MewtwoXDexEntry
 	dw MagnemiteDexEntry
 	dw MissingNoDexEntry
 	dw MissingNoDexEntry
@@ -1253,6 +1253,28 @@ VictreebelDexEntry:
 	dw 340
 	text_far _VictreebelDexEntry
 	text_end
+
+MCharizardDexEntry:
+	db "APEXDRAGON@"
+	db 5,07
+	dw 1105
+	text_far _MCharizardDexEntry
+	text_end
+
+CharizardYDexEntry:
+	db "FIREDRAGON@"
+	db 5,07
+	dw 1005
+	text_far _CharizardYDexEntry
+	text_end
+
+MewtwoXDexEntry:
+	db "GENETIC@"
+	db 7,07
+	dw 2800
+	text_far _MewtwoXDexEntry
+	text_end
+
 
 MissingNoDexEntry:
 	db "???@"

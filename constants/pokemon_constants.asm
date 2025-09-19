@@ -37,8 +37,8 @@
 	const BLASTOISE          ; $1C
 	const PINSIR             ; $1D
 	const TANGELA            ; $1E
-	const_skip               ; $1F
-	const_skip               ; $20
+	const MCHARIZARD         ; $1F
+	const CHARIZARDY         ; $20
 	const GROWLITHE          ; $21
 	const ONIX               ; $22
 	const FEAROW             ; $23
@@ -178,7 +178,7 @@
 	const GEODUDE            ; $A9
 	const PORYGON            ; $AA
 	const AERODACTYL         ; $AB
-	const_skip               ; $AC
+	const MEWTWO_X           ; $AC
 	const MAGNEMITE          ; $AD
 	const_skip               ; $AE
 	const_skip               ; $AF

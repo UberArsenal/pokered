@@ -21,6 +21,7 @@ IndigoPlateauLobby_TextPointers:
 	dw_const IndigoPlateauLobbyCooltrainerFText,     TEXT_INDIGOPLATEAULOBBY_COOLTRAINER_F
 	dw_const IndigoPlateauLobbyClerkText,            TEXT_INDIGOPLATEAULOBBY_CLERK
 	dw_const IndigoPlateauLobbyLinkReceptionistText, TEXT_INDIGOPLATEAULOBBY_LINK_RECEPTIONIST
+	dw_const IndigoPlateauLobbyMrFujiText,			 TEXT_INDIGOPLATEAULOBBY_MR_FUJI
 
 IndigoPlateauLobbyNurseText:
 	script_pokecenter_nurse
@@ -35,3 +36,44 @@ IndigoPlateauLobbyCooltrainerFText:
 
 IndigoPlateauLobbyLinkReceptionistText:
 	script_cable_club_receptionist
+
+IndigoPlateauLobbyMrFujiText:
+	text_asm
+	CheckEvent EVENT_GOT_REVERT_STONE
+	jr nz, .got_item
+	ld hl, .GiveRevertStoneText
+	call PrintText
+	lb bc, REVERT_STONE, 1
+	call GiveItem
+	jr nc, .bag_full
+	ld hl, .ReceivedRevertStoneText
+	call PrintText
+	SetEvent EVENT_GOT_REVERT_STONE
+	jr .done
+.bag_full
+	ld hl, .RevertStoneNoRoomText
+	call PrintText
+	jr .done
+.got_item
+	ld hl, .GoodLuckAgainText
+	call PrintText
+.done
+	jp TextScriptEnd
+
+.GiveRevertStoneText:
+	text_far _IndigoPlateauLobbyMrFujiGiveRevertStoneText
+	text_end
+
+.ReceivedRevertStoneText:
+	text_far _IndigoPlateauLobbyMrFujiReceivedRevertStoneText
+	sound_get_key_item
+	text_far _IndigoPlateauLobbyMrFujiGoodLuckText
+	text_end
+
+.RevertStoneNoRoomText:
+	text_far _IndigoPlateauLobbyMrFujiRevertStoneNoRoomText
+	text_end
+
+.GoodLuckAgainText:
+	text_far _IndigoPlateauLobbyMrFujiGoodLuckAgainText
+	text_end

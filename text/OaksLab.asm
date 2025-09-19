@@ -71,6 +71,18 @@ _OaksLabOak1YourPokemonCanFightText::
 	line "#MON appears,"
 	cont "your #MON can"
 	cont "fight against it!"
+	
+	para "If you lose the"
+	line "fight, however,"
+	cont "you will have"
+	cont "to escape to the"
+	cont "#MON CENTER."
+	
+	para "There, you can"
+	line "heal your #-"
+	cont "MON to full "
+	cont "strength! And"
+	cont "it's free! Haha!"
 	done
 
 _OaksLabOak1RaiseYourYoungPokemonText::
@@ -125,7 +137,7 @@ _OaksLabOak1ReceivedPokeballsText::
 	cont "to capture wild"
 	cont "#MON."
 
-	para "<PLAYER> got 5"
+	para "<PLAYER> got 10"
 	line "# BALLs!@"
 	text_end
 
@@ -137,14 +149,29 @@ _OaksLabGivePokeballsExplanationText::
 
 	para "Just throw a #"
 	line "BALL at it and try"
-	line "to catch it!"
+	cont "to catch it!"
 
 	para "This won't always"
 	line "work, though."
 
 	para "A healthy #MON"
-	line "could escape. You"
-	cont "have to be lucky!"
+	line "could break free"
+	cont "from the #BALL."
+	
+	para "You have to use"
+	line "your own #MON"
+	cont "to weaken it."
+	
+	para "The chances of"
+	line "catching it will"
+	cont "increase as well"
+	cont "if it is asleep,"
+	cont "burned, poisoned,"
+	cont "or paralyzed!"
+	
+	para "Good luck on"
+	line "catching them"
+	cont "all <PLAYER>!"
 	done
 
 _OaksLabOak1ComeSeeMeSometimesText::

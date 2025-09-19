@@ -49,6 +49,8 @@
 	const_skip 3
 	const EVENT_GOT_TM34
 	const EVENT_BEAT_BROCK
+	const EVENT_GOT_MUSEUM_FOSSIL
+
 
 ; Cerulean City events
 	const_next $98
@@ -159,7 +161,7 @@
 	const EVENT_BEAT_FUCHSIA_GYM_TRAINER_3
 	const EVENT_BEAT_FUCHSIA_GYM_TRAINER_4
 	const EVENT_BEAT_FUCHSIA_GYM_TRAINER_5
-
+	
 ; Cinnabar Island events
 	const_next $278
 	const EVENT_MANSION_SWITCH_ON
@@ -710,7 +712,7 @@
 
 ; Cerulean Cave events
 	const_next $8C0
-	const_skip
+	const EVENT_GOT_MEWTWONITE_X
 	const EVENT_BEAT_MEWTWO
 
 ; Indigo Plateau events
@@ -736,7 +738,7 @@ DEF INDIGO_PLATEAU_EVENTS_START EQU const_value
 	const_skip
 	const EVENT_BEAT_CHAMPION_RIVAL
 	const_skip 5
-	const_skip
+	const EVENT_GOT_REVERT_STONE
 DEF INDIGO_PLATEAU_EVENTS_END EQU const_value - 1
 
 ; Victory Road 1F events

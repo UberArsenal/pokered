@@ -17,6 +17,12 @@ HiddenItems:
 	ld [wNamedObjectIndex], a
 	call GetItemName
 	tx_pre_jump FoundHiddenItemText
+	
+.itemAlreadyfound
+	predef TryFieldMove
+	ld a, $ff
+	ldh [hItemAlreadyFound], a
+	ret
 
 INCLUDE "data/events/hidden_item_coords.asm"
 

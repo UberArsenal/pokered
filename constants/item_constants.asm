@@ -27,6 +27,7 @@
 	const HYPER_POTION  ; $12
 	const SUPER_POTION  ; $13
 	const POTION        ; $14
+; badges use item IDs (see scripts/CeruleanBadgeHouse.asm)
 	const BOULDERBADGE  ; $15
 DEF SAFARI_BAIT EQU BOULDERBADGE ; overload
 	const CASCADEBADGE  ; $16
@@ -52,13 +53,13 @@ DEF SAFARI_ROCK EQU CASCADEBADGE ; overload
 	const DOME_FOSSIL   ; $29
 	const HELIX_FOSSIL  ; $2A
 	const SECRET_KEY    ; $2B
-	const ITEM_2C       ; $2C ; unused
+	const MEGA_STONE_X  ; $2C
 	const BIKE_VOUCHER  ; $2D
 	const X_ACCURACY    ; $2E
 	const LEAF_STONE    ; $2F
 	const CARD_KEY      ; $30
 	const NUGGET        ; $31
-	const ITEM_32       ; $32 ; unused
+	const MEGASTONE_Y   ; $32
 	const POKE_DOLL     ; $33
 	const FULL_HEAL     ; $34
 	const REVIVE        ; $35
@@ -92,9 +93,11 @@ DEF SAFARI_ROCK EQU CASCADEBADGE ; overload
 	const MAX_ETHER     ; $51
 	const ELIXER        ; $52
 	const MAX_ELIXER    ; $53
+	const REVERT_STONE  ; $54 -real
+	const MEWTWONITE_X  ; $55
 DEF NUM_ITEMS EQU const_value - 1
 
-; elevator floors use item IDs
+; elevator floors use item IDs (see scripts/CeladonMartElevator.asm and scripts/SilphCoElevator.asm)
 	const FLOOR_B2F     ; $54
 	const FLOOR_B1F     ; $55
 	const FLOOR_1F      ; $56

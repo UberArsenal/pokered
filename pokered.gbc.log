@@ -1,0 +1,35 @@
+﻿Randomizer Version: 4.6.1
+Random Seed: 16490307874636
+Settings String: 322AAgEAQEGAAcAAQAEAAEeRAABFAAAFABABAABAAAAAAAAAAAJMgQyAQAICTIGAgAyAAIAD1Bva2Vtb24gUmVkIChVKReKyJHjwziK
+
+Pokemon base stats & type: unchanged
+
+--Custom Starters--
+Set starter 1 to CHARIZARD
+Set starter 2 to SQUIRTLE
+Set starter 3 to BULBASAUR
+
+Move Data: Unchanged.
+
+Pokemon Movesets: Unchanged.
+
+TM Moves: Unchanged.
+
+Trainers: Unchanged.
+
+Static Pokemon: Unchanged.
+
+Wild Pokemon: Unchanged.
+
+------------------------------------------------------------------
+Randomization of Pokemon Red (U) completed.
+Time elapsed: 23ms
+RNG Calls: 1
+------------------------------------------------------------------
+
+--ROM Diagnostics--
+The ROM you loaded is not a clean, official ROM.
+Randomizing ROM hacks or bad ROM dumps is not supported and may cause issues.
+
+File name: pokered.gbc
+Original ROM CRC32: D867BA22

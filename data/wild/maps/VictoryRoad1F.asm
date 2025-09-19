@@ -1,11 +1,11 @@
 VictoryRoad1FWildMons:
 	def_grass_wildmons 15 ; encounter rate
 	db 24, MACHOP
-	db 26, GEODUDE
-	db 22, ZUBAT
+	db 26, CUBONE
+	db 22, RHYHORN
 	db 36, ONIX
 	db 39, ONIX
-	db 42, ONIX
+	db 42, RHYDON
 	db 41, GRAVELER
 	db 41, GOLBAT
 	db 42, MACHOKE

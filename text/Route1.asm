@@ -48,3 +48,4 @@ _Route1SignText::
 	line "PALLET TOWN -"
 	cont "VIRIDIAN CITY"
 	done
+

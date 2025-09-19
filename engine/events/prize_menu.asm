@@ -2,18 +2,18 @@ CeladonPrizeMenu::
 	ld b, COIN_CASE
 	call IsItemInBag
 	jr nz, .havingCoinCase
-	ld hl, RequireCoinCaseTextPtr
+	ld hl, RequireCoinCaseText
 	jp PrintText
 .havingCoinCase
 	ld hl, wStatusFlags5
 	set BIT_NO_TEXT_DELAY, [hl]
-	ld hl, ExchangeCoinsForPrizesTextPtr
+	ld hl, ExchangeCoinsForPrizesText
 	call PrintText
 ; the following are the menu settings
 	xor a
 	ld [wCurrentMenuItem], a
 	ld [wLastMenuItem], a
-	ld a, A_BUTTON | B_BUTTON
+	ld a, PAD_A | PAD_B
 	ld [wMenuWatchedKeys], a
 	ld a, $03
 	ld [wMaxMenuItem], a
@@ -28,10 +28,10 @@ CeladonPrizeMenu::
 	call TextBoxBorder
 	call GetPrizeMenuId
 	call UpdateSprites
-	ld hl, WhichPrizeTextPtr
+	ld hl, WhichPrizeText
 	call PrintText
 	call HandleMenuInput ; menu choice handler
-	bit BIT_B_BUTTON, a
+	bit B_PAD_B, a
 	jr nz, .noChoice
 	ld a, [wCurrentMenuItem]
 	cp 3 ; "NO,THANKS" choice
@@ -42,16 +42,16 @@ CeladonPrizeMenu::
 	res BIT_NO_TEXT_DELAY, [hl]
 	ret
 
-RequireCoinCaseTextPtr:
+RequireCoinCaseText:
 	text_far _RequireCoinCaseText
 	text_waitbutton
 	text_end
 
-ExchangeCoinsForPrizesTextPtr:
+ExchangeCoinsForPrizesText:
 	text_far _ExchangeCoinsForPrizesText
 	text_end
 
-WhichPrizeTextPtr:
+WhichPrizeText:
 	text_far _WhichPrizeText
 	text_end
 

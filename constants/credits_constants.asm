@@ -1,6 +1,7 @@
 ; CreditsTextPointers indexes (see data/credits/credits_text.asm)
 	const_def
 	const CRED_VERSION        ; $00
+	const CRED_JONES
 	const CRED_TAJIRI         ; $01
 	const CRED_TA_OOTA        ; $02
 	const CRED_MORIMOTO       ; $03
@@ -29,6 +30,7 @@
 	const CRED_TA_NAKAMURA    ; $1A
 	const CRED_YUDA           ; $1B
 	const CRED_MON            ; $1C
+	const CRED_HACKER
 	const CRED_DIRECTOR       ; $1D
 	const CRED_PROGRAMMERS    ; $1E
 	const CRED_CHAR_DESIGN    ; $1F

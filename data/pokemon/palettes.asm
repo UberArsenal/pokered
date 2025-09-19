@@ -152,4 +152,7 @@ MonsterPalettes:
 	db PAL_BROWNMON  ; DRAGONITE
 	db PAL_MEWMON    ; MEWTWO
 	db PAL_MEWMON    ; MEW
+	db PAL_BLUEMON   ; MCharizard
+	db PAL_REDMON	 ; CharizardY
+	db PAL_MEWMON    ; MEWTWO_X
 	assert_table_length NUM_POKEMON + 1

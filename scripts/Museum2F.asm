@@ -11,6 +11,8 @@ Museum2F_TextPointers:
 	dw_const Museum2FSpaceShuttleSignText, TEXT_MUSEUM2F_SPACE_SHUTTLE_SIGN
 	dw_const Museum2FMoonStoneSignText,    TEXT_MUSEUM2F_MOON_STONE_SIGN
 
+
+
 Museum2FYoungsterText:
 	text_far _Museum2FYoungsterText
 	text_end

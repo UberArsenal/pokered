@@ -2,6 +2,7 @@ CreditsTextPointers:
 ; entries correspond to CRED_* constants
 	table_width 2
 	dw CredVersion
+	dw CredJones
 	dw CredTajiri
 	dw CredTaOota
 	dw CredMorimoto
@@ -30,6 +31,7 @@ CreditsTextPointers:
 	dw CredTaNakamura
 	dw CredYuda
 	dw CredMon
+	dw CredHacker
 	dw CredDirector
 	dw CredProgrammers
 	dw CredCharDesign
@@ -74,6 +76,8 @@ ENDC
 IF DEF(_BLUE)
 	db -8, "BLUE VERSION STAFF@"
 ENDC
+CredJones:
+	db -6, "DANIEL JONES@"
 CredTajiri:
 	db -6, "SATOSHI TAJIRI@"
 CredTaOota:
@@ -130,6 +134,8 @@ CredYuda:
 	db -6, "MASAMITSU YUDA@"
 CredMon:
 	db -3, "#MON@"
+CredHacker:
+	db -3, "LEAD HACKER@"
 CredDirector:
 	db -3, "DIRECTOR@"
 CredProgrammers:

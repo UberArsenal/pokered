@@ -29,7 +29,7 @@ ItemPrices::
 	bcd3 0     ; VOLCANOBADGE
 	bcd3 0     ; EARTHBADGE
 	bcd3 550   ; ESCAPE_ROPE
-	bcd3 350   ; REPEL
+	bcd3 10    ; REPEL
 	bcd3 0     ; OLD_AMBER
 	bcd3 2100  ; FIRE_STONE
 	bcd3 2100  ; THUNDER_STONE
@@ -39,24 +39,24 @@ ItemPrices::
 	bcd3 9800  ; IRON
 	bcd3 9800  ; CARBOS
 	bcd3 9800  ; CALCIUM
-	bcd3 4800  ; RARE_CANDY
+	bcd3 5     ; RARE_CANDY
 	bcd3 0     ; DOME_FOSSIL
 	bcd3 0     ; HELIX_FOSSIL
 	bcd3 0     ; SECRET_KEY
-	bcd3 0     ; ITEM_2C
+	bcd3 4900  ; MEGA_STONE_X
 	bcd3 0     ; BIKE_VOUCHER
 	bcd3 950   ; X_ACCURACY
 	bcd3 2100  ; LEAF_STONE
 	bcd3 0     ; CARD_KEY
 	bcd3 10000 ; NUGGET
-	bcd3 9800  ; ITEM_32
+	bcd3 100   ; MEGASTONE_Y
 	bcd3 1000  ; POKE_DOLL
 	bcd3 600   ; FULL_HEAL
 	bcd3 1500  ; REVIVE
 	bcd3 4000  ; MAX_REVIVE
 	bcd3 700   ; GUARD_SPEC
-	bcd3 500   ; SUPER_REPEL
-	bcd3 700   ; MAX_REPEL
+	bcd3 25    ; SUPER_REPEL
+	bcd3 50    ; MAX_REPEL
 	bcd3 650   ; DIRE_HIT
 	bcd3 10    ; COIN
 	bcd3 200   ; FRESH_WATER
@@ -83,6 +83,8 @@ ItemPrices::
 	bcd3 0     ; MAX_ETHER
 	bcd3 0     ; ELIXER
 	bcd3 0     ; MAX_ELIXER
+	bcd3 0     ; REVERT_STONE
+	bcd3 0     ; MEWTWONITE_X
 	assert_table_length NUM_ITEMS
 	bcd3 0     ; FLOOR_B2F
 	bcd3 0     ; FLOOR_B1F
