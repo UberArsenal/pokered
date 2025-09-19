@@ -104,6 +104,24 @@ def B_PAD_A      equ 0
     def PAD_B        equ 1 << B_PAD_B
     def PAD_A        equ 1 << B_PAD_A
 
+; Legacy aliases
+def B_BUTTON     equ PAD_B
+def A_BUTTON     equ PAD_A
+def SELECT       equ PAD_SELECT
+def START        equ PAD_START
+def D_DOWN       equ PAD_DOWN
+def D_UP         equ PAD_UP
+def D_LEFT       equ PAD_LEFT
+def D_RIGHT      equ PAD_RIGHT
+def BIT_B_BUTTON equ B_PAD_B
+def BIT_A_BUTTON equ B_PAD_A
+def BIT_SELECT   equ B_PAD_SELECT
+def BIT_START    equ B_PAD_START
+def BIT_D_DOWN   equ B_PAD_DOWN
+def BIT_D_UP     equ B_PAD_UP
+def BIT_D_LEFT   equ B_PAD_LEFT
+def BIT_D_RIGHT  equ B_PAD_RIGHT
+
 ; Combined input byte, with Control Pad in low nybble (swapped order)
 def B_PAD_SWAP_START  equ 7
 def B_PAD_SWAP_SELECT equ 6
@@ -741,6 +759,7 @@ def rRAMG equ $0000
 ; Common values (not for HuC1 or HuC-3)
 def RAMG_SRAM_DISABLE equ $00
 def RAMG_SRAM_ENABLE  equ $0A ; some MBCs accept any value whose low nybble is $A
+def MBC1SRamEnable    equ rRAMG
 
 ; (HuC-3 only) switch SRAM to map cartridge RAM, RTC, or IR
 def RAMG_CART_RAM_RO   equ $00 ; select cartridge RAM [ro]
@@ -761,6 +780,7 @@ def rROMB equ $2000
 ; -- RAMB ($4000-$5FFF) -------------------------------------------------------
 ; SRAM bank number (not for MBC2, MBC6, or MBC7) [wo]
 def rRAMB equ $4000
+def MBC1SRamBank equ rRAMB
 
 ; (MBC3 only) Special RAM bank numbers that actually map values into RTCREG
 def RAMB_RTC_S  equ $08 ; seconds counter (0-59)
@@ -928,6 +948,8 @@ def TILEMAP_HEIGHT_PX equ 256 ; height of tilemap in pixels
 def TILEMAP_WIDTH     equ  32 ; width of tilemap in bytes
 def TILEMAP_HEIGHT    equ  32 ; height of tilemap in bytes
 def TILEMAP_AREA      equ TILEMAP_WIDTH * TILEMAP_HEIGHT ; size of tilemap in bytes
+def BG_MAP_WIDTH      equ TILEMAP_WIDTH
+def BG_MAP_HEIGHT     equ TILEMAP_HEIGHT
 
 def TILE_WIDTH  equ  8 ; width of tile in pixels
 def TILE_HEIGHT equ  8 ; height of tile in pixels
