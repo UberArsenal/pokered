@@ -60,25 +60,20 @@ PalletTownOakHeyWaitScript:
 	ld [wPalletTownCurScript], a
 	ret
 
+OAK_APPROACHED_FROM_RIGHT EQU 1 << 7
+
 PalletTownOakWalksToPlayerScript:
-	ld a, PALLETTOWN_OAK
-	ldh [hSpriteIndex], a
-	ld a, SPRITE_FACING_UP
-	ldh [hSpriteFacingDirection], a
-	call SetSpriteFacingDirectionAndDelay
-	call Delay3
-	ld a, 1
-	ld [wYCoord], a
-	ld a, 1
-	ldh [hNPCPlayerRelativePosPerspective], a
-	ld a, 1
-	swap a
-	ldh [hNPCSpriteOffset], a
-	predef CalcPositionOfPlayerRelativeToNPC
-	ld hl, hNPCPlayerYDistance
-	dec [hl]
-	predef FindPathToPlayer ; load Oak's movement into wNPCMovementDirections2
-	ld de, wNPCMovementDirections2
+	ld a, [wXCoord]
+	cp $b
+	jr nz, .playerLeftPath
+	ld de, PalletTownOakApproachRightMovement
+	ld a, OAK_APPROACHED_FROM_RIGHT
+	jr .queueMovement
+.playerLeftPath
+	ld de, PalletTownOakApproachLeftMovement
+	xor a
+.queueMovement
+	ld [wSavedCoordIndex], a
 	ld a, PALLETTOWN_OAK
 	ldh [hSpriteIndex], a
 	call MoveSprite
@@ -96,24 +91,25 @@ PalletTownOakNotSafeComeWithMeScript:
 	ret nz
 	xor a ; ld a, SPRITE_FACING_DOWN
 	ld [wSpritePlayerStateData1FacingDirection], a
-	ld a, TRUE
+	ld a, [wSavedCoordIndex]
+	or TRUE
 	ld [wOakWalkedToPlayer], a
+	ld a, PALLETTOWN_OAK
+	ldh [hSpriteIndex], a
+	ld a, SPRITE_FACING_UP
+	ldh [hSpriteFacingDirection], a
+	call SetSpriteFacingDirectionAndDelay
 	ld a, PAD_SELECT | PAD_START | PAD_CTRL_PAD
 	ld [wJoyIgnore], a
 	ld a, TEXT_PALLETTOWN_OAK
 	ldh [hTextID], a
 	call DisplayTextID
-; set up movement script that causes the player to follow Oak to his lab
+	ld hl, wStatusFlags7
+	set BIT_NO_MAP_MUSIC, [hl]
 	ld a, PAD_BUTTONS | PAD_CTRL_PAD
 	ld [wJoyIgnore], a
-	ld a, PALLETTOWN_OAK
-	ld [wSpriteIndex], a
 	xor a
 	ld [wNPCMovementScriptFunctionNum], a
-	ld a, 1
-	ld [wNPCMovementScriptPointerTableNum], a
-	ldh a, [hLoadedROMBank]
-	ld [wNPCMovementScriptBank], a
 
 	; trigger the next script
 	ld a, SCRIPT_PALLETTOWN_PLAYER_FOLLOWS_OAK
@@ -121,9 +117,62 @@ PalletTownOakNotSafeComeWithMeScript:
 	ret
 
 PalletTownPlayerFollowsOakScript:
-	ld a, [wNPCMovementScriptPointerTableNum]
-	and a ; is the movement script over?
+	ld a, [wNPCMovementScriptFunctionNum]
+	and a
+	jr z, .initAlignment
+	dec a
+	jr z, .waitAlignment
+	dec a
+	jr z, .startLeading
+	dec a
+	jr z, .waitLeading
+	ret
+
+.initAlignment
+	ld a, [wOakWalkedToPlayer]
+	bit 7, a
+	jr z, .skipAlignment
+	ld a, PALLETTOWN_OAK
+	ldh [hSpriteIndex], a
+	ld de, PalletTownOakAlignLeftMovement
+	call MoveSprite
+	ld a, 1
+	ld [wNPCMovementScriptFunctionNum], a
+	ret
+
+.skipAlignment
+	ld a, 2
+	ld [wNPCMovementScriptFunctionNum], a
+	ret
+
+.waitAlignment
+	ld a, [wStatusFlags5]
+	bit BIT_SCRIPTED_NPC_MOVEMENT, a
 	ret nz
+	ld a, 2
+	ld [wNPCMovementScriptFunctionNum], a
+	ret
+
+.startLeading
+	ld a, PALLETTOWN_OAK
+	ldh [hSpriteIndex], a
+	ld de, PalletTownOakWalkToLabMovement
+	call MoveSprite
+	xor a
+	ld [wJoyIgnore], a
+	ld a, 3
+	ld [wNPCMovementScriptFunctionNum], a
+	ret
+
+.waitLeading
+	ld a, [wStatusFlags5]
+	bit BIT_SCRIPTED_NPC_MOVEMENT, a
+	ret nz
+	ld a, HS_PALLET_TOWN_OAK
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	xor a
+	ld [wNPCMovementScriptFunctionNum], a
 
 	; trigger the next script
 	ld a, SCRIPT_PALLETTOWN_DAISY
@@ -198,6 +247,50 @@ PalletTownGirlText:
 PalletTownFisherText:
 	text_far _PalletTownFisherText
 	text_end
+
+PalletTownOakApproachLeftMovement:
+	db NPC_MOVEMENT_UP
+	db NPC_MOVEMENT_UP
+	db NPC_MOVEMENT_UP
+	db NPC_MOVEMENT_RIGHT
+	db NPC_MOVEMENT_RIGHT
+	db NPC_CHANGE_FACING
+	db -1 ; end
+
+PalletTownOakApproachRightMovement:
+	db NPC_MOVEMENT_UP
+	db NPC_MOVEMENT_UP
+	db NPC_MOVEMENT_UP
+	db NPC_MOVEMENT_RIGHT
+	db NPC_MOVEMENT_RIGHT
+	db NPC_MOVEMENT_RIGHT
+	db NPC_CHANGE_FACING
+	db -1 ; end
+
+PalletTownOakAlignLeftMovement:
+	db NPC_MOVEMENT_LEFT
+	db NPC_CHANGE_FACING
+	db -1 ; end
+
+PalletTownOakWalkToLabMovement:
+	db NPC_MOVEMENT_DOWN
+	db NPC_MOVEMENT_DOWN
+	db NPC_MOVEMENT_DOWN
+	db NPC_MOVEMENT_DOWN
+	db NPC_MOVEMENT_DOWN
+	db NPC_MOVEMENT_LEFT
+	db NPC_MOVEMENT_DOWN
+	db NPC_MOVEMENT_DOWN
+	db NPC_MOVEMENT_DOWN
+	db NPC_MOVEMENT_DOWN
+	db NPC_MOVEMENT_DOWN
+	db NPC_MOVEMENT_RIGHT
+	db NPC_MOVEMENT_RIGHT
+	db NPC_MOVEMENT_RIGHT
+	db NPC_MOVEMENT_UP
+	db NPC_MOVEMENT_UP
+	db NPC_CHANGE_FACING
+	db -1 ; end
 
 PalletTownOaksLabSignText:
 	text_far _PalletTownOaksLabSignText
