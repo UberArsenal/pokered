@@ -1533,12 +1533,15 @@ ItemUseRepel:
 	ld b, 100
 
 ItemUseRepelCommon:
-	ld a, [wIsInBattle]
-	and a
-	jp nz, ItemUseNotTime
-	ld a, b
-	ld [wRepelRemainingSteps], a
-	jp PrintItemUseTextAndRemoveItem
+        ld a, [wIsInBattle]
+        and a
+        jp nz, ItemUseNotTime
+        ld a, [wCurItem]
+        ld [wLastRepelItem], a
+        ld a, b
+        ld [wLastRepelStepCount], a
+        ld [wRepelRemainingSteps], a
+        jp PrintItemUseTextAndRemoveItem
 
 ; handles X Accuracy item
 ItemUseXAccuracy:

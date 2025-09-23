@@ -207,10 +207,77 @@ PlayerBlackedOutText::
 	text_end
 
 DisplayRepelWoreOffText::
-	ld hl, RepelWoreOffText
-	call PrintText
-	jp AfterDisplayingTextID
+        ld hl, RepelWoreOffText
+        call PrintText
+        call TryReuseRepel
+        jp AfterDisplayingTextID
 
 RepelWoreOffText::
-	text_far _RepelWoreOffText
-	text_end
+        text_far _RepelWoreOffText
+        text_end
+
+UseRepelAgainText::
+        text_far _UseRepelAgainText
+        text_end
+
+TryReuseRepel:
+        ld a, [wLastRepelStepCount]
+        and a
+        ret z
+        ld a, [wLastRepelItem]
+        and a
+        ret z
+        ld b, a
+        call GetQuantityOfItemInBag
+        ld a, b
+        and a
+        ret z
+        ld hl, UseRepelAgainText
+        call PrintText
+        call YesNoChoice
+        ld a, [wCurrentMenuItem]
+        and a
+        ret nz
+        ld a, [wLastRepelItem]
+        ld [wCurItem], a
+        call GetItemName
+        call FindCurItemInBag
+        ret nc
+        ld a, 1
+        ld [wItemQuantity], a
+        ld hl, wNumBagItems
+        call RemoveItemFromInventory
+        ld a, [wLastRepelStepCount]
+        ld [wRepelRemainingSteps], a
+        ld [wLastRepelStepCount], a
+        ld a, [wCurItem]
+        ld [wLastRepelItem], a
+        ld hl, ItemUseText00
+        call PrintText
+        ld a, SFX_HEAL_AILMENT
+        call PlaySound
+        call WaitForTextScrollButtonPress
+        ret
+
+FindCurItemInBag:
+        ld a, [wCurItem]
+        ld d, a
+        ld hl, wBagItems
+        ld c, 0
+.loop
+        ld a, [hli]
+        cp $ff
+        jr z, .notFound
+        cp d
+        jr z, .found
+        inc hl
+        inc c
+        jr .loop
+.found
+        ld a, c
+        ld [wWhichPokemon], a
+        scf
+        ret
+.notFound
+        and a
+        ret
