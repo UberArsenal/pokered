@@ -8,10 +8,12 @@
 	const_skip 2
 	const EVENT_PALLET_AFTER_GETTING_POKEBALLS
 	const_skip 17
-	const EVENT_GOT_TOWN_MAP
-	const EVENT_ENTERED_BLUES_HOUSE
-	const EVENT_DAISY_WALKING
-	const_skip 5
+        const EVENT_GOT_TOWN_MAP
+        const EVENT_ENTERED_BLUES_HOUSE
+        const EVENT_DAISY_WALKING
+        const EVENT_BEAT_PROF_OAK
+        const EVENT_OAK_BATTLE_COOLDOWN
+        const_skip 3
 	const EVENT_FOLLOWED_OAK_INTO_LAB_2
 	const EVENT_OAK_ASKED_TO_CHOOSE_MON
 	const EVENT_GOT_STARTER
